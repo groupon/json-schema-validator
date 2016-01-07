@@ -14,13 +14,12 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
     <groupId>com.groupon.api</groupId>
     <artifactId>api-parent-pom</artifactId>
     <version>1.0.11</version>
-    <relativePath/>
+    <relativePath />
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
@@ -30,7 +29,7 @@
   <name>Json Schema Validator Maven Plugin</name>
   <description>Maven plugin to validate json files against a json schema</description>
   <url>https://github.com/groupon/json-schema-validator</url>
-  <version>1.2-SNAPSHOT</version>
+  <version>1.2.0</version>
 
   <licenses>
     <license>
@@ -73,7 +72,7 @@
     <connection>scm:git:git@github.com:groupon/json-schema-validator.git</connection>
     <developerConnection>scm:git:git@github.com:groupon/json-schema-validator.git</developerConnection>
     <url>https://github.com/groupon/json-schema-validator</url>
-    <tag>HEAD</tag>
+    <tag>json-schema-validator-1.2.0</tag>
   </scm>
 
   <properties>
