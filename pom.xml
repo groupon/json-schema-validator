@@ -29,7 +29,7 @@
   <name>Json Schema Validator Maven Plugin</name>
   <description>Maven plugin to validate json files against a json schema</description>
   <url>https://github.com/groupon/json-schema-validator</url>
-  <version>1.2.0</version>
+  <version>1.2.1-SNAPSHOT</version>
 
   <licenses>
     <license>
@@ -72,7 +72,7 @@
     <connection>scm:git:git@github.com:groupon/json-schema-validator.git</connection>
     <developerConnection>scm:git:git@github.com:groupon/json-schema-validator.git</developerConnection>
     <url>https://github.com/groupon/json-schema-validator</url>
-    <tag>json-schema-validator-1.2.0</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <properties>
