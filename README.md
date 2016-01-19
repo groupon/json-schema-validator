@@ -5,6 +5,10 @@ json-schema-validator
     <img src="https://img.shields.io/hexpm/l/plug.svg"
          alt="License: Apache 2">
 </a>
+<a href="https://travis-ci.org/groupon/json-schema-validator/">
+    <img src="https://travis-ci.org/groupon/json-schema-validator.png"
+         alt="Travis Build">
+</a>
 <a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.groupon.maven.plugin.json%22%20a%3A%22json-schema-validator%22">
     <img src="https://img.shields.io/maven-central/v/com.groupon.maven.plugin.json/json-schema-validator.svg"
          alt="Maven Artifact">
