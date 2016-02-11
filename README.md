@@ -37,6 +37,14 @@ Configure one or more __validation__ blocks for the plugin in the __plugins__ bl
 <plugin>
     <artifactId>json-schema-validator</artifactId>
     <groupId>com.groupon.maven.plugin.json</groupId>
+    <executions>
+        <execution>
+            <phase>verify</phase>
+            <goals>
+                <goal>validate</goal>
+            </goals>
+        </execution>
+    </executions>
     <configuration>
         <validations>
             <validation>
