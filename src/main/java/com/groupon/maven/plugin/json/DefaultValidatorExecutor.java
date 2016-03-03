@@ -104,11 +104,11 @@ public class DefaultValidatorExecutor implements ValidatorExecutor {
     private JsonNode loadJson(final String file) throws MojoExecutionException {
         try {
             final JsonNode node = JsonLoader.fromPath(file);
-            request.getLog().info("Loaded JSON from " + file);
             return node;
         } catch (final IOException io) {
+            request.getLog().error("Failed to parse JSON from '" + file + "'");
             request.getLog().error(io);
-            throw new MojoExecutionException("IOException loading JSON", io);
+            throw new MojoExecutionException("Failed to parse JSON from file '" + file + "'", io);
         }
     }
 
