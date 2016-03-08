@@ -125,7 +125,7 @@ public class ValidatorMojoTest extends AbstractMojoTestCase {
             mojo.execute();
             fail("Must throw an exception");
         } catch (final Exception e) {
-            assertEquals(MojoExecutionException.class, e.getClass());
+            assertEquals(MojoFailureException.class, e.getClass());
         }
     }
 
@@ -161,7 +161,7 @@ public class ValidatorMojoTest extends AbstractMojoTestCase {
             mojo.execute();
             fail("Must throw an exception");
         } catch (final Exception e) {
-            assertEquals(MojoExecutionException.class, e.getClass());
+            assertEquals(MojoFailureException.class, e.getClass());
         }
     }
 

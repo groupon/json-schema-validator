@@ -73,12 +73,27 @@ public class DefaultValidatorExecutor implements ValidatorExecutor {
         if (!StringUtils.isEmpty(validation.getJsonSchema())) {
             schemaFile = FileUtils.locateInputFile(validation.getJsonSchema(), inputLocator);
         }
+        List<Exception> exceptions = new ArrayList<>();
         for (final String jsonFile : jsonFiles) {
-            if (schemaFile != null) {
-                validateAgainstSchema(jsonFile, schemaFile);
-            } else {
-                loadJson(jsonFile);
+            try {
+                if (schemaFile != null) {
+                    validateAgainstSchema(jsonFile, schemaFile);
+                } else {
+                    loadJson(jsonFile);
+                }
+            } catch (MojoExecutionException | MojoFailureException e) {
+                exceptions.add(e);
             }
+        }
+
+        if (exceptions.size() > 0) {
+            request.getLog().error("Failed validating json files, " + exceptions.size() + " failures");
+            for (Exception e : exceptions) {
+                request.getLog().error(e.getMessage());
+            }
+            throw new MojoFailureException("Failed while validating json files.");
+        } else {
+            request.getLog().info("Succesfully processed " + jsonFiles.size() + " files.");
         }
     }
 
@@ -90,10 +105,10 @@ public class DefaultValidatorExecutor implements ValidatorExecutor {
             final JsonSchema schema = factory.getJsonSchema(schemaResource);
             final ProcessingReport report = schema.validate(fileResouce);
             if (!report.isSuccess()) {
-                request.getLog().error("Failed validating JSON from " + jsonDataFile + " against " + schemaFile);
-                throw new MojoFailureException(report.toString());
+                request.getLog().error("File: " + jsonDataFile + " - validation against " + schemaFile + " - Failure");
+                throw new MojoFailureException("Failed to validate JSON from file '" + jsonDataFile + "' - " + report.toString());
             } else {
-                request.getLog().info("Successfully validated JSON from " + jsonDataFile + " against " + schemaFile);
+                request.getLog().info("File: " + jsonDataFile + " - validation against " + schemaFile + " - Success");
             }
         } catch (final ProcessingException e) {
             request.getLog().error(e);
@@ -104,11 +119,11 @@ public class DefaultValidatorExecutor implements ValidatorExecutor {
     private JsonNode loadJson(final String file) throws MojoExecutionException {
         try {
             final JsonNode node = JsonLoader.fromPath(file);
-            request.getLog().info("Loaded JSON from " + file);
+            request.getLog().info("File: " + file + " - parsing Json - Success");
             return node;
         } catch (final IOException io) {
-            request.getLog().error(io);
-            throw new MojoExecutionException("IOException loading JSON", io);
+            request.getLog().error("File: " + file + " - parsing Json - Failure");
+            throw new MojoExecutionException("Failed to parse JSON from file '" + file + "' - " + io.getMessage(), io);
         }
     }
 
