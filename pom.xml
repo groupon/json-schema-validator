@@ -18,7 +18,7 @@
   <parent>
     <groupId>com.groupon.api</groupId>
     <artifactId>api-parent-pom</artifactId>
-    <version>1.1.1</version>
+    <version>2.1.0</version>
     <relativePath />
   </parent>
 
@@ -78,15 +78,15 @@
   <properties>
     <!--Dependency versions-->
     <findbugs.annotations.version>3.0.0</findbugs.annotations.version>
-    <jackson.version>2.6.2</jackson.version>
+    <jackson.version>2.9.7</jackson.version>
     <json-schema-validator.version>2.2.6</json-schema-validator.version>
-    <junit.version>4.12</junit.version>
+    <junit.version>4.13-beta-1</junit.version>
     <maven-plugin-testing-harness.version>1.2</maven-plugin-testing-harness.version>
     <maven-plugin-tools-annotations.version>3.2</maven-plugin-tools-annotations.version>
     <maven-plugin-tools-api.version>3.2</maven-plugin-tools-api.version>
-    <mockito.version>1.10.19</mockito.version>
-    <plexus-component-annotations.version>1.5.5</plexus-component-annotations.version>
-    <plexus-resources.version>1.0-alpha-7</plexus-resources.version>
+    <mockito.version>2.23.4</mockito.version>
+    <plexus-component-annotations.version>1.7.1</plexus-component-annotations.version>
+    <plexus-resources.version>1.1.0</plexus-resources.version>
 
     <!--Coverage Settings-->
     <jacoco.check.line.coverage>1.0</jacoco.check.line.coverage>
